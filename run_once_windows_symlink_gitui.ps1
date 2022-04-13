@@ -5,7 +5,7 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
   Exit
 }
 
-$config_folder = "$env:USERPROFILE\.config\\gitui"
+$config_folder = "$env:USERPROFILE\.config\gitui"
 $symlink_folder = "$env:APPDATA\gitui"
 if (Test-Path $symlink_folder) {
   Remove-Item -Recurse $symlink_folder

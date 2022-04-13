@@ -21,16 +21,20 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
   Start-Sleep -Seconds 1
 } else {
   try {
-    $appDatasToSymlink = 'gitui'
-    Foreach ($item in $appDatasToSymlink) {
-      $config_folder = "$env:USERPROFILE\.config\$item"
-      $symlink_folder = "$env:APPDATA\$item"
-      New-Item -Force -Path $symlink_folder -ItemType SymbolicLink -Value $config_folder
-    }
-    $localAppDatasToSymlink = 'nvim'
-    Foreach ($item in $localAppDatasToSymlink) {
-      $config_folder = "$env:USERPROFILE\.config\$item"
-      $symlink_folder = "$env:LOCALAPPDATA\$item"
+    $appToSymlink = @(
+      @{
+        Name = 'gitui';
+        Path = "$env:APPDATA";
+      },
+      @{
+        Name = 'nvim';
+        Path = "$env:LOCALAPPDATA";
+      }
+    )
+    Foreach ($item in $appToSymlink) {
+      $symlink_folder = $item.Path + '\' + $item.Name
+      $name = $item.Name
+      $config_folder = "$env:USERPROFILE\.config\$name"
       New-Item -Force -Path $symlink_folder -ItemType SymbolicLink -Value $config_folder
     }
     Exit

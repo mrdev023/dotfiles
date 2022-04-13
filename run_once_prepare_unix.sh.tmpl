@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# JUST TO KEEP IN HEAD
+# {{ if eq .chezmoi.kernel.osrelease "ubuntu" -}}
+# sudo apt install ripgrep
+# {{ end -}}
+
+# INSTALL HOMEBREW
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+
+{{ if eq .chezmoi.os "linux" -}}
+
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.bash_profile
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# {{ else if eq .chezmoi.os "darwin" -}}
+{{ end -}}
+
+
+# INSTALL COMMON PACKAGES WITH HOMEBREW
+brew install gcc make cmake gitui neovim tmux lazygit ripgrep fd
+
+# INSTALL RVM FOR RUBY
+curl -sSL https://get.rvm.io | bash -s stable --ruby
+
+# INSTALL NVM FOR NODE
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+
+# INSTALL FVM FOR FLUTTER
+brew tap leoafarias/fvm
+brew install fvm
+
+# INSTALL RUSTUP WITH STABLE RUST VERSION
+curl https://sh.rustup.rs -sSf | sh -s -- -y
+brew install rust-analyzer
+
+{{ if eq .chezmoi.os "linux" -}}
+
+source ~/.bash_profile
+# {{ else if eq .chezmoi.os "darwin" -}}
+{{ end -}}

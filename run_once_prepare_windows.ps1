@@ -5,10 +5,15 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
   Exit
 }
 
-$config_folder = "$env:USERPROFILE\.config\gitui"
-$symlink_folder = "$env:APPDATA\gitui"
-if (Test-Path $symlink_folder) {
-  Remove-Item -Recurse $symlink_folder
+$appDatasToSymlink = 'gitui'
+Foreach ($item in $appDatasToSymlink) {
+  $config_folder = "$env:USERPROFILE\.config\$item"
+  $symlink_folder = "$env:APPDATA\$item"
+  if (Test-Path $symlink_folder) {
+    Remove-Item -Recurse $symlink_folder
+  }
+  New-Item -Path $symlink_folder -ItemType SymbolicLink -Value $config_folder
 }
 
-New-Item -Path $symlink_folder -ItemType SymbolicLink -Value $config_folder
+# Install required packages with winget
+winget install alacritty

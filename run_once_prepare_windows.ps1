@@ -16,4 +16,13 @@ Foreach ($item in $appDatasToSymlink) {
 }
 
 # Install required packages with winget
-winget install alacritty
+winget install alacritty gitui
+
+# Install other packages with scoop because not available in winget
+Invoke-Expression (New-Object System.Net.WebClient).DownloadString('https://get.scoop.sh')
+
+scoop install neovim
+
+# Install fonts
+scoop bucket add nerd-fonts
+scoop install FiraCode-NF FiraCode-NF-Mono FiraMono-NF FiraCode-Script FiraCode Delugia-Nerd-Font-Complete Delugia-Mono-Nerd-Font-Complete Cascadia-Code CascadiaCode-NF CascadiaCode-NF-Mono

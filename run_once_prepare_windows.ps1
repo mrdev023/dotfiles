@@ -16,9 +16,9 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
   scoop bucket add nerd-fonts
   scoop install FiraCode-NF FiraCode-NF-Mono FiraMono-NF FiraCode-Script FiraCode Delugia-Nerd-Font-Complete Delugia-Mono-Nerd-Font-Complete Cascadia-Code CascadiaCode-NF CascadiaCode-NF-Mono
 
-  $CommandLine = "-NoExit -File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
+  $CommandLine = "-File `"" + $MyInvocation.MyCommand.Path + "`" " + $MyInvocation.UnboundArguments
   Start-Process -FilePath PowerShell.exe -Verb Runas -ArgumentList $CommandLine
-  Start-Sleep -Seconds 10
+  Start-Sleep -Seconds 1
 } else {
   try {
     $appDatasToSymlink = 'gitui'

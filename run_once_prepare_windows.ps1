@@ -27,6 +27,12 @@ if (-Not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
       $symlink_folder = "$env:APPDATA\$item"
       New-Item -Force -Path $symlink_folder -ItemType SymbolicLink -Value $config_folder
     }
+    $localAppDatasToSymlink = 'nvim'
+    Foreach ($item in $localAppDatasToSymlink) {
+      $config_folder = "$env:USERPROFILE\.config\$item"
+      $symlink_folder = "$env:LOCALAPPDATA\$item"
+      New-Item -Force -Path $symlink_folder -ItemType SymbolicLink -Value $config_folder
+    }
     Exit
   } catch {
     Start-Sleep -Seconds 10

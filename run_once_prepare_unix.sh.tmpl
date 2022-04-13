@@ -1,8 +1,11 @@
+{{ if ne .chezmoi.os "windows" }}
 #!/bin/bash
 
 # JUST TO KEEP IN HEAD
-# {{ if eq .chezmoi.kernel.osrelease "ubuntu" -}}
+# {{ if eq .chezmoi.os "linux" -}}
+# {{ if eq .chezmoi.osRelease.id "ubuntu" -}}
 # sudo apt install ripgrep
+# {{ end -}}
 # {{ end -}}
 # Exemple: https://github.com/RichiCoder1/dotfiles/blob/master/executable_install-tools.sh.tmpl
 
@@ -39,4 +42,6 @@ brew install rust-analyzer
 
 source ~/.bash_profile
 # {{ else if eq .chezmoi.os "darwin" -}}
+{{ end -}}
+
 {{ end -}}

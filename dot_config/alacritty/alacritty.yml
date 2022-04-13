@@ -1,0 +1,7 @@
+shell:
+  program: tmux
+font:
+  normal:
+    family: FiraCode NF
+window:
+  opacity: 0.5 # Require `picom -f &` in .xinitrc

@@ -12,4 +12,3 @@ if (Test-Path $symlink_folder) {
 }
 
 New-Item -Path $symlink_folder -ItemType SymbolicLink -Value $config_folder
-Start-Sleep -Seconds 5

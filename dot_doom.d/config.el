@@ -73,4 +73,28 @@
 ;; etc).
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
-;; they are implemented.
+;; they are implemented.(use-package! lsp-mode)
+
+(defun on-switch-project-update-flutter-path ()
+  "Perform some action after switching Projectile projects."
+  (if (project-current)
+     (setq lsp-dart-flutter-sdk-dir (concat (project-root (project-current)) ".fvm/flutter_sdk")))
+)
+(add-hook 'projectile-after-switch-project-hook #'on-switch-project-update-flutter-path)
+
+;; (use-package! lsp-dart
+;;   :hook (dart-mode . lsp)
+;;   :init
+;;   :config
+;;   (setq lsp-dart-flutter-sdk-dir (project-root (project-current))))
+
+(with-eval-after-load 'projectile
+  (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
+  (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+
+(use-package! lsp-mode
+  :init
+  :config
+  (setq lsp-rust-server 'rust-analyzer
+        lsp-rust-analyzer-server-display-inlay-hints t
+        lsp-metals-show-inferred-type t))

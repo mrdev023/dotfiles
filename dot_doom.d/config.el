@@ -92,33 +92,11 @@
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
 
+(centaur-tabs-group-by-projectile-project) ; Fix not work with latest version and projectile
+
 (use-package! lsp-mode
   :init
   :config
   (setq lsp-rust-server 'rust-analyzer
         lsp-rust-analyzer-server-display-inlay-hints t
         lsp-metals-show-inferred-type t))
-
-;; Centaur tabs custom conf | See ema2159/centaur-tabs in github
-(use-package! centaur-tabs
-   :config
-   (setq centaur-tabs-style "wave"
-	  centaur-tabs-height 32
-	  centaur-tabs-set-icons t
-	  centaur-tabs-set-modified-marker t
-	  centaur-tabs-set-bar 'over
-	  x-underline-at-descent-line t)
-   (centaur-tabs-headline-match)
-   (centaur-tabs-mode t)
-   :hook
-   (calendar-mode . centaur-tabs-local-mode)
-   (org-agenda-mode . centaur-tabs-local-mode)
-   :bind
-   ("C-<prior>" . centaur-tabs-backward)
-   ("C-<next>" . centaur-tabs-forward)
-   ("C-c t s" . centaur-tabs-counsel-switch-group)
-   ("C-c t p" . centaur-tabs-group-by-projectile-project)
-   ("C-c t g" . centaur-tabs-group-buffer-groups)
-   (:map evil-normal-state-map
-	  ("g t" . centaur-tabs-forward)
-	  ("g T" . centaur-tabs-backward)))

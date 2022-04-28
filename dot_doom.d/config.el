@@ -92,7 +92,11 @@
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
 
-(centaur-tabs-group-by-projectile-project) ; Fix not work with latest version and projectile
+;; Fix not work with latest version and projectile
+(use-package! centaur-tabs
+  :init
+  :config
+  (centaur-tabs-group-by-projectile-project))
 
 (use-package! lsp-mode
   :init

@@ -1,0 +1,4 @@
+{{ if eq .chezmoi.osRelease.idLike "arch" }}
+#!/bin/bash
+sudo pacman -S picom i3-gaps polybar dunst
+{{ end }} 

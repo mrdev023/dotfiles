@@ -5,7 +5,7 @@
 # Author: machaerus
 # https://gitlab.com/machaerus
 
-source colors.sh
+source ~/.config/polybar/scripts/colors.sh
 
 net_speed() {
 	UP_NETSPEED=$(awk '{if(l1){printf "%6.1f", ($10-l2)/1024} else{l1=$2; l2=$10;}}' <(grep wlan0 /proc/net/dev) <(sleep 1; grep wlan0 /proc/net/dev))

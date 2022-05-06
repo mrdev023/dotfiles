@@ -5,7 +5,7 @@
 # Author: machaerus
 # https://gitlab.com/machaerus
 
-source colors.sh
+source ~/.config/polybar/scripts/colors.sh
 
 custom_time() {
 	WEEKDAY=$(date +%A)

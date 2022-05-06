@@ -12,7 +12,7 @@
 # Original idea for calculating the battery % is not mine, unfortunately
 # I don't remember the source.
 
-source colors.sh
+source ~/.config/polybar/scripts/colors.sh
 
 healthbar_print() {
 
@@ -50,6 +50,11 @@ healthbar_print() {
 	battery_max=$(("$battery_max_0 + $battery_max_1"))
 
 	battery_percent=$(("$battery_level * 100"))
+	
+	if [ "$battery_max" -eq "0" ]; then
+		exit 0
+	fi
+
 	battery_percent=$(("$battery_percent / $battery_max"))
 
 	# notify-send "Battery below 90%"

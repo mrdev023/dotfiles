@@ -7,7 +7,7 @@
 # Author: machaerus
 # https://gitlab.com/machaerus
 
-source colors.sh
+source ~/.config/polybar/scripts/colors.sh
 
 bluetooth_speaker() {
 	BT_DEVICE="1C:E6:1D:EF:0A:76"

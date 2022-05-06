@@ -5,7 +5,7 @@
 # Author: machaerus
 # https://gitlab.com/machaerus
 
-source colors.sh
+source ~/.config/polybar/scripts/colors.sh
 
 manabar_print() {
 	ESSID=$(iwconfig wlan0 | grep ESSID | cut -d: -f2 | xargs)

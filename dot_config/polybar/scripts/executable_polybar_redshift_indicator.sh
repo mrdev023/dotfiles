@@ -6,7 +6,7 @@
 # Author: machaerus
 # https://gitlab.com/machaerus
 
-source colors.sh
+source ~/.config/polybar/scripts/colors.sh
 
 dunst_notifications() {
 	dunst_enabled=$(dunstctl is-paused)

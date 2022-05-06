@@ -1,4 +1,0 @@
-{{ if eq .chezmoi.osRelease.idLike "arch" }}
-#!/bin/bash
-sudo pacman -S picom i3-gaps polybar dunst dmenu i3lock bluez-tools tmux yay --noconfirm
-{{ end }}

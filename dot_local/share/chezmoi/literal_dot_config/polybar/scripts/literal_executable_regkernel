@@ -1,3 +1,0 @@
-#!/bin/bash
-# Usage: regkernel your-py-kernel "Your favourite kernel"
-python -m ipykernel install --user --name $1 --display-name "$2"

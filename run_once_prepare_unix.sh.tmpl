@@ -1,47 +1,16 @@
 {{ if ne .chezmoi.os "windows" }}
 #!/bin/bash
+	# {{ if eq .chezmoi.os "linux" -}}
+	# {{ if eq .chezmoi.osRelease.id "ubuntu" -}}
+	# sudo apt install ripgrep
+	# {{ end -}}
+	# {{ end -}}
+	# Exemple: https://github.com/RichiCoder1/dotfiles/blob/master/executable_install-tools.sh.tmpl
 
-# JUST TO KEEP IN HEAD
-# {{ if eq .chezmoi.os "linux" -}}
-# {{ if eq .chezmoi.osRelease.id "ubuntu" -}}
-# sudo apt install ripgrep
-# {{ end -}}
-# {{ end -}}
-# Exemple: https://github.com/RichiCoder1/dotfiles/blob/master/executable_install-tools.sh.tmpl
-
-# INSTALL HOMEBREW
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-
-{{ if eq .chezmoi.os "linux" -}}
-
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.bash_profile
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-# {{ else if eq .chezmoi.os "darwin" -}}
-{{ end -}}
-
-
-# INSTALL COMMON PACKAGES WITH HOMEBREW
-brew install gcc make cmake gitui neovim tmux lazygit ripgrep fd
-
-# INSTALL RVM FOR RUBY
-curl -sSL https://get.rvm.io | bash -s stable --ruby
-
-# INSTALL NVM FOR NODE
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-
-# INSTALL FVM FOR FLUTTER
-brew tap leoafarias/fvm
-brew install fvm
-
-# INSTALL RUSTUP WITH STABLE RUST VERSION
-curl https://sh.rustup.rs -sSf | sh -s -- -y
-brew install rust-analyzer
-
-{{ if eq .chezmoi.os "linux" -}}
-
-source ~/.bash_profile
-# {{ else if eq .chezmoi.os "darwin" -}}
-{{ end -}}
-
+	{{ if eq .chezmoi.os "linux" -}}
+		{{ if eq .chezmoi.osRelease.idLike "arch" }}
+			sudo pacman -S picom i3-gaps polybar dunst
+		{{ end }} 
+	# {{ else if eq .chezmoi.os "darwin" -}}
+	{{ end -}}
 {{ end -}}

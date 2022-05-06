@@ -104,3 +104,6 @@
   (setq lsp-rust-server 'rust-analyzer
         lsp-rust-analyzer-server-display-inlay-hints t
         lsp-metals-show-inferred-type t))
+
+(setq elfeed-feeds
+      '("https://this-week-in-rust.org/rss.xml" lang rust))

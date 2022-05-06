@@ -257,5 +257,5 @@ for_window [class="Galculator" instance="galculator"] floating enable
 exec --no-startup-id /usr/bin/dunst
 
 ## Launch Polybar
-exec_always --no-startup-id launch_polybar
+exec_always --no-startup-id ~/.config/polybar/scripts/launch_polybar
 

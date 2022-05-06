@@ -50,7 +50,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id picom -CGb --experimental-backend
 
 #Background
-exec --no-startup-id feh --bg-scale /home/adonis/Images/2784029.webp
+exec --no-startup-id feh --bg-scale ~/.config/i3/i3-wall.png
 #exec --no-startup-id mplayer -loop 0 -rootwin -ao null -vo x11 -nokeepaspect -noconsolecontrols -fs /home/adonis/Images/AggressiveShallowCatbird-size_restricted.gif
 #exec --no-startup-id mpv --wid=0 -loop 0 -ao null -no-input-terminal -fs /home/adonis/Images/AggressiveShallowCatbird-size_restricted.gif
 # exec --no-startup-id xwinwrap -ov -fs -- mplayer -fs -rootwin -wid 0 -quiet -nosound /home/adonis/Images/AggressiveShallowCatbird-size_restricted.mp4 -loop 0

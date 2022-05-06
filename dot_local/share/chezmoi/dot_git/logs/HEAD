@@ -1,0 +1,8 @@
+0000000000000000000000000000000000000000 7bb1eeb272c6b2db9b18cebf55a430a28e4740c7 Florian RICHER <florian@florian-ms7b09.(none)> 1651319621 +0200	clone: from https://github.com/mrdev023/dotfiles.git
+7bb1eeb272c6b2db9b18cebf55a430a28e4740c7 8ff142bc1f3d033da41e5ce965327331c2d888a5 Florian RICHER <florian.richer.97@outlook.com> 1651867774 +0200	commit: Update dot_doom.d/config.el
+8ff142bc1f3d033da41e5ce965327331c2d888a5 2e78190d74d3d4bd6e5b1fab1df49761b14b0415 Florian RICHER <florian.richer.97@outlook.com> 1651868221 +0200	commit: Begin implement arch autoconf
+2e78190d74d3d4bd6e5b1fab1df49761b14b0415 b9eb849018bc01b971b69c5bc621a0aa4083f826 Florian RICHER <florian.richer.97@outlook.com> 1651868810 +0200	commit: Add dot_config/dunst/dunstrc
+b9eb849018bc01b971b69c5bc621a0aa4083f826 0e0387e99b4212b1e056a4eae1f9f0b2973ce1af Florian RICHER <florian.richer.97@outlook.com> 1651869325 +0200	commit: Update dot_config/i3/config
+0e0387e99b4212b1e056a4eae1f9f0b2973ce1af 4ac586098b5bef99a583875f334cef3cc83f2514 Florian RICHER <florian.richer.97@outlook.com> 1651869419 +0200	commit: Remove dot_config/i3/i3blocks.conf
+4ac586098b5bef99a583875f334cef3cc83f2514 134cd852d406b2976d4525b5f90427ffdbf26fcf Florian RICHER <florian.richer.97@outlook.com> 1651869596 +0200	commit: Add dot_config/polybar/colors.ini
+134cd852d406b2976d4525b5f90427ffdbf26fcf 3ff2e6e742ef911e8930f41d42956c3f74ad8b90 Florian RICHER <florian.richer.97@outlook.com> 1651870524 +0200	commit: Update dot_config/polybar/custom_modules.ini

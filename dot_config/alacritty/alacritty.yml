@@ -4,4 +4,4 @@ font:
   normal:
     family: FiraCode NF
 window:
-  opacity: 0.5 # Require `picom -f &` in .xinitrc
+  opacity: 0.8 # Require `picom -f &` in .xinitrc

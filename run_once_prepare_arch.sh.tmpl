@@ -5,6 +5,9 @@ sudo pacman -S curl picom i3-gaps polybar dunst dmenu i3lock bluez-tools blueber
 
 yay -S nerd-fonts-complete spotify spicetify-cli --noconfirm
 
+sudo chmod a+wr /opt/spotify
+sudo chmod a+wr /opt/spotify/Apps -R
+
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 {{ end }}

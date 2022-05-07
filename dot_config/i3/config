@@ -264,6 +264,10 @@ for_window [class="Galculator" instance="galculator"] floating enable
 
 # Enable gnome keyring
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=gpg
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 
 # Desktop notifications_
 exec --no-startup-id /usr/bin/dunst

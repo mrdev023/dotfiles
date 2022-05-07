@@ -263,7 +263,6 @@ default_floating_border pixel 4
 for_window [class="Galculator" instance="galculator"] floating enable
 
 # Enable gnome keyring
-exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=gpg
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh

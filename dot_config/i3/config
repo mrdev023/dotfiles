@@ -21,10 +21,11 @@ gaps inner 10
 gaps outer 10
 
 #do not show titlebar on windows: 
-# new_window 1pixel
+#new_window 1pixel
 
 # thin borders:
-hide_edge_borders both
+# hide_edge_borders none|vertical|horizontal|both|smart
+hide_edge_borders none
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -244,7 +245,7 @@ client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color       
 
 
 # Toggle gap
-set $mode_gaps Toggle gaps: (1) on (2) off
+set $mode_gaps Toggle gaps: (g) on (f) off
 bindsym $mod+g mode "$mode_gaps"
 mode "$mode_gaps" {
     bindsym g mode "default", gaps inner all set 10, gaps outer all set 10
@@ -254,12 +255,15 @@ mode "$mode_gaps" {
 }
 
 # Toggle window title
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 4
+default_floating_border pixel 4
 
 
 # set floating (nontiling)for apps needing it:
 for_window [class="Galculator" instance="galculator"] floating enable
+
+# Enable gnome keyring
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 
 # Desktop notifications_
 exec --no-startup-id /usr/bin/dunst

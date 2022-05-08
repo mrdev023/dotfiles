@@ -271,6 +271,9 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 
+# Start kdeconnect
+exec --no-startup-id /usr/lib/kdeconnectd
+
 # Set current monitor configuration
 exec --no-startup-id ~/.config/i3/on_i3_start.sh
 

@@ -6,14 +6,6 @@
 source ~/.config/i3/common_var.sh
 source $GENERATED_MONITOR_CONF
 
-SCREEN_NUMBER=${#SCREENS[@]}
-
-# Set command from current WM
-MSG_COMMAND=i3-msg
-if [[ $DESKTOP_SESSION =~ ^sway$ ]]; then
-	MSG_COMMAND=swaymsg
-fi
-
 # Get current workspace output (Screen)
 CURRENT_WORKSPACE=$($MSG_COMMAND -t get_workspaces \
 	| jq '.[] | select(.visible == true and .focused == true) | .output' \
@@ -33,9 +25,11 @@ done
 DESIRED_WORKSPACE=$(($SCREEN_INDEX * 10 + $1))
 
 # To run in DRY RUN uncomment line in below
-MSG_COMMAND=echo
+# MSG_COMMAND=echo
 if [[ "$2" == "move" ]]; then
+	notify-send "move to $DESIRED_WORKSPACE"
 	$MSG_COMMAND move container to workspace number $DESIRED_WORKSPACE
 else
+	notify-send "switch to $DESIRED_WORKSPACE"
 	$MSG_COMMAND workspace number $DESIRED_WORKSPACE
 fi

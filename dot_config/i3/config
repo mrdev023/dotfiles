@@ -145,6 +145,9 @@ bindsym $mod+q focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# SOURCE OF ALL CONFS
+# https://github.com/sharpTrick/set-i3-workspace
+
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1"
@@ -159,28 +162,28 @@ set $ws9 "9"
 set $ws10 "10"
 
 # switch to workspace
-bindsym $mod+1 workspace number $ws1
-bindsym $mod+2 workspace number $ws2
-bindsym $mod+3 workspace number $ws3
-bindsym $mod+4 workspace number $ws4
-bindsym $mod+5 workspace number $ws5
-bindsym $mod+6 workspace number $ws6
-bindsym $mod+7 workspace number $ws7
-bindsym $mod+8 workspace number $ws8
-bindsym $mod+9 workspace number $ws9
-bindsym $mod+0 workspace number $ws10
+bindsym $mod+1 exec ~/.config/i3/relative_workspace.sh $ws1
+bindsym $mod+2 exec ~/.config/i3/relative_workspace.sh $ws2
+bindsym $mod+3 exec ~/.config/i3/relative_workspace.sh $ws3
+bindsym $mod+4 exec ~/.config/i3/relative_workspace.sh $ws4
+bindsym $mod+5 exec ~/.config/i3/relative_workspace.sh $ws5
+bindsym $mod+6 exec ~/.config/i3/relative_workspace.sh $ws6
+bindsym $mod+7 exec ~/.config/i3/relative_workspace.sh $ws7
+bindsym $mod+8 exec ~/.config/i3/relative_workspace.sh $ws8
+bindsym $mod+9 exec ~/.config/i3/relative_workspace.sh $ws9
+bindsym $mod+0 exec ~/.config/i3/relative_workspace.sh $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number $ws1
-bindsym $mod+Shift+2 move container to workspace number $ws2
-bindsym $mod+Shift+3 move container to workspace number $ws3
-bindsym $mod+Shift+4 move container to workspace number $ws4
-bindsym $mod+Shift+5 move container to workspace number $ws5
-bindsym $mod+Shift+6 move container to workspace number $ws6
-bindsym $mod+Shift+7 move container to workspace number $ws7
-bindsym $mod+Shift+8 move container to workspace number $ws8
-bindsym $mod+Shift+9 move container to workspace number $ws9
-bindsym $mod+Shift+0 move container to workspace number $ws10
+bindsym $mod+Shift+1 exec ~/.config/i3/relative_workspace.sh $ws1 move
+bindsym $mod+Shift+2 exec ~/.config/i3/relative_workspace.sh $ws2 move
+bindsym $mod+Shift+3 exec ~/.config/i3/relative_workspace.sh $ws3 move
+bindsym $mod+Shift+4 exec ~/.config/i3/relative_workspace.sh $ws4 move
+bindsym $mod+Shift+5 exec ~/.config/i3/relative_workspace.sh $ws5 move
+bindsym $mod+Shift+6 exec ~/.config/i3/relative_workspace.sh $ws6 move
+bindsym $mod+Shift+7 exec ~/.config/i3/relative_workspace.sh $ws7 move
+bindsym $mod+Shift+8 exec ~/.config/i3/relative_workspace.sh $ws8 move
+bindsym $mod+Shift+9 exec ~/.config/i3/relative_workspace.sh $ws9 move
+bindsym $mod+Shift+0 exec ~/.config/i3/relative_workspace.sh $ws10 move
 
 # kill window 
 bindsym $mod+Shift+q kill
@@ -267,6 +270,9 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=gpg
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11
+
+# Set current monitor configuration
+exec_always --no-startup-id ~/.config/i3/on_i3_start.sh
 
 # Desktop notifications_
 exec --no-startup-id /usr/bin/dunst

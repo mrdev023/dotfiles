@@ -12,7 +12,7 @@ function set_configuration () {
 	$MONITOR_CONF # Apply configuration
 }
 
-# set_configuration
+set_configuration
 
 # SCREENS => HashMap | Key => Output name | Value => Position X
 # SCREENS EX:
@@ -49,3 +49,4 @@ EXPORT_SCREENS="${EXPORT_SCREENS:0:-1})" # Remove last space
 
 echo "#!/bin/bash" > $GENERATED_MONITOR_CONF
 echo $EXPORT_SCREENS >> $GENERATED_MONITOR_CONF
+echo "SCREEN_NUMBER=\${#SCREENS[@]}" >> $GENERATED_MONITOR_CONF

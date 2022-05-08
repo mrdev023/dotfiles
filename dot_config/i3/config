@@ -272,7 +272,7 @@ exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh
 exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=pkcs11
 
 # Set current monitor configuration
-exec_always --no-startup-id ~/.config/i3/on_i3_start.sh
+exec --no-startup-id ~/.config/i3/on_i3_start.sh
 
 # Desktop notifications_
 exec --no-startup-id /usr/bin/dunst

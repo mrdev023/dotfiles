@@ -5,6 +5,7 @@ source $GENERATED_MONITOR_CONF
 
 $MONITOR_CONF # Apply configured layout
 
+
 function process_workspace () {
 	WORKSPACE_NUMBER=$(echo $1 | cut -d ',' -f1)
 	OUTPUT_NAME=$(echo $1 | cut -d ',' -f2)
@@ -18,19 +19,23 @@ function process_workspace () {
 	fi
 }
 
-# Create new workspace for multiple screen at first index of relative index
-# Ex: SCREEN 2 => WORKSPACE NUMBER  => 20
-for i in $(seq 2 $SCREEN_NUMBER); do
-	INDEX=$(($i - 1))
-	SCREEN=${SCREENS[$INDEX]}
-	echo workspace number $(($INDEX * 10)) to output $SCREEN
-	$MSG_COMMAND workspace number \"$(($INDEX * 10))\" to output $SCREEN
-done
-
-$MSG_COMMAND -t get_workspaces \
-	| jq -c '.[] | [.num, .output] | @csv' \
-       	| sed 's/"//g' | sed 's/\\//g' |
-	while IFS=$'\n' read -r c; do
-		process_workspace $c
+function reconfigure_workspaces () {
+	# Create new workspace for multiple screen at first index of relative index
+	# Ex: SCREEN 2 => WORKSPACE NUMBER  => 20
+	for i in $(seq 2 $SCREEN_NUMBER); do
+		INDEX=$(($i - 1))
+		SCREEN=${SCREENS[$INDEX]}
+		echo workspace number $(($INDEX * 10)) to output $SCREEN
+		$MSG_COMMAND workspace number \"$(($INDEX * 10))\" to output $SCREEN
 	done
+
+	$MSG_COMMAND -t get_workspaces \
+		| jq -c '.[] | [.num, .output] | @csv' \
+		| sed 's/"//g' | sed 's/\\//g' |
+		while IFS=$'\n' read -r c; do
+			process_workspace $c
+		done
+}
+
+# reconfigure_workspaces
 

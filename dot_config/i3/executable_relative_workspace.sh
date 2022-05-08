@@ -3,8 +3,9 @@
 # Required jq to be installed with
 # pacman -S jq arandr
 
-# Move to layout.sh exported with arandr
-SCREENS=("DP-3" "DP-1" "DP-5")
+source ~/.config/i3/common_var.sh
+source $GENERATED_MONITOR_CONF
+
 SCREEN_NUMBER=${#SCREENS[@]}
 
 # Set command from current WM
@@ -32,7 +33,7 @@ done
 DESIRED_WORKSPACE=$(($SCREEN_INDEX * 10 + $1))
 
 # To run in DRY RUN uncomment line in below
-# MSG_COMMAND=echo
+MSG_COMMAND=echo
 if [[ "$2" == "move" ]]; then
 	$MSG_COMMAND move container to workspace number $DESIRED_WORKSPACE
 else

@@ -27,4 +27,4 @@ packages+=(kdeconnect)
 
 # Spotify to listen music :)
 # ## spicetify-cli => Use to customize spotify (Add vim keyboard style)
-aur_packages+=(spotify spicetify-cli)
+aur_packages+=(spicetify-cli)

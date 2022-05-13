@@ -1,5 +1,3 @@
-{{- $wm := (output "bash" "-c" "echo $DESKTOP_SESSION") -}}
-
 {{- if eq .chezmoi.osRelease.idLike "arch" -}}
 #!/bin/bash
 
@@ -8,7 +6,7 @@
 packages=(curl git yay)
 # ## falchion-shutdown | My custom AUR packages to avoid shutdown my computer when keyboard is sleeping
 # ## nerd-fonts-complete | To install my preferred fonts :)
-aur_packages=(falchion-shutdown nerd-fonts-complete)
+aur_packages=(falchion-shutdown nerd-fonts-complete spotify)
 
 # For terminal
 # ## kitty => Terminal emulator like alacritty but it look more powerfull so it can replace alacritty and tmux in future
@@ -20,11 +18,11 @@ packages+=(kitty viu zsh)
 # ## rust-analyzer => Use in replacement of RLS | Used by (emacs-ng + neovim + vscode if installed)
 packages+=(neovim rust-analyzer)
 
-{{- if eq $wm "i3" -}}
+{{ if eq .wm "i3wm" }}
 {{- template "i3wm_before" -}}
-{{- else if eq $wm "gnome" -}}
-sadsada
-{{- end -}}
+{{ else if eq .wm "gnome" }}
+{{- template "gnome_before" -}}
+{{ end }}
 
 sudo pacman -S ${packages[@]} --noconfirm --needed
 yay -S ${aur_packages[@]} --noconfirm --needed
@@ -33,7 +31,7 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-{{- if eq $wm "i3" -}}
+{{- if eq .wm "i3wm" -}}
 {{- template "i3wm_after" -}}
 {{- end -}}
 

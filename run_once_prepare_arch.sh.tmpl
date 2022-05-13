@@ -32,8 +32,10 @@ if [ ! -d ~/.tmux/plugins/tpm ]; then
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-{{- if eq .wm "i3wm" -}}
+{{ if eq .wm "i3wm" }}
 {{- template "i3wm_after" -}}
-{{- end -}}
+{{ else if eq .wm "gnome" }}
+{{- template "gnome_after" -}}
+{{ end }}
 
 {{- end -}}

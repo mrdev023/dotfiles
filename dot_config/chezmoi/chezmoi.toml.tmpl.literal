@@ -1,8 +1,8 @@
-{{- $wm := (output "bash" "-c" "echo $DESKTOP_SESSION") -}}
+{{- $wm := (output "bash" "-c" "echo -n $DESKTOP_SESSION") -}}
 
 [git]
     autoCommit = true
     autoPush = true
 
 [data]
-    wm = {{ $wm | replace "\n" "" | quote }}
+    wm = {{ $wm | quote }}

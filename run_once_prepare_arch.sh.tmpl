@@ -1,71 +1,40 @@
-{{ if eq .chezmoi.osRelease.idLike "arch" }}
+{{- $wm := (output "bash" "-c" "echo $DESKTOP_SESSION") -}}
+
+{{- if eq .chezmoi.osRelease.idLike "arch" -}}
 #!/bin/bash
 
 # Common packages
-packages=(curl git)
-
-# All requirements for i3
-# ## i3-gaps => I3 version but with spaces between menu | Equivalent i3
-# ## picom => Compositor to add effects in window | Use with i3
-# ## polybar => Use to create simple bar in bottom | Use with i3
-# ## dunst => Customizable and simple notification manager (to test it, use notify-send) | Use with i3
-# ## dmenu => Basic custom menu like rofi to launch application with Windows + D | Use with i3
-# ## i3lock => Custom lock screen
-# ## gnome-keyring => Use to store sensitive data like password by google chrome and other
-# ## xss-lock => Use to use external locker as X screen saver | Use to use i3lock for i3
-# ## dex => Use to generate or use Desktop file .desktop of type Application | Use with i3
-# ## feh => Use to set wallpaper | Use with i3
-# ## jq => Json parser for command line use by my custom script for relative workspaces because i3-msg return json format
-packages+=(picom i3-gaps polybar dunst dmenu i3lock gnome-keyring xss-lock dex feh jq)
-
-# Utils in complement for i3
-# ## bluez-tools => Used by some polybar scripts
-# ## blueberry => Useful interface to manage bluetooth devices
-# ## pavucontrol => Useful interface to manage audio (<!> Not tried with pipewire)
-# ## network-manager-applet => Useful applet to manage network (Support Wifi and Wired)
-# ## playerctl => Use to manage spotify, browsers playlist and many more from keyboard key (Use dbus to communicate)
-# ## arandr => Basic interface to set current monitor position + resolution
-packages+=(bluez-tools blueberry pavucontrol network-manager-applet playerctl arandr)
+# ## yay => Use to install AUR packages | Used by (Here in below)
+packages=(curl git yay)
+# ## falchion-shutdown | My custom AUR packages to avoid shutdown my computer when keyboard is sleeping
+# ## nerd-fonts-complete | To install my preferred fonts :)
+aur_packages=(falchion-shutdown nerd-fonts-complete)
 
 # For terminal
-# ## tmux => To use multiple shell in same terminal | Used by (alacritty) | <!>
-# ## alacritty => Terminal emulator coded in Rust | <!>
 # ## kitty => Terminal emulator like alacritty but it look more powerfull so it can replace alacritty and tmux in future
 # ## viu => Terminal image viewer compatible with kitty
-packages+=(kitty viu alacritty tmux zsh)
+packages+=(kitty viu zsh)
 
 # For development
 # ## Modern replacement of vim with lua support
 # ## rust-analyzer => Use in replacement of RLS | Used by (emacs-ng + neovim + vscode if installed)
 packages+=(neovim rust-analyzer)
 
-# For productivity
-# ## kdeconnect => To sync phone and Desktop | Used by (i3 config)
-packages+=(kdeconnect)
-
-# Other
-# ## yay => Use to install AUR packages | Used by (Here in below)
-packages+=(yay)
-
-# ## falchion-shutdown | My custom AUR packages to avoid shutdown my computer when keyboard is sleeping
-# ## nerd-fonts-complete | To install my preferred fonts :)
-aur_packages=(falchion-shutdown nerd-fonts-complete)
-
-# Spotify to listen music :)
-# ## spicetify-cli => Use to customize spotify (Add vim keyboard style)
-aur_packages+=(spotify spicetify-cli)
+{{- if eq $wm "i3" -}}
+{{- template "i3wm_before" -}}
+{{- else if eq $wm "gnome" -}}
+sadsada
+{{- end -}}
 
 sudo pacman -S ${packages[@]} --noconfirm --needed
 yay -S ${aur_packages[@]} --noconfirm --needed
-
-case "${aur_packages[@]}" in
-	*"spicetify-cli"*)
-		sudo chmod a+wr /opt/spotify
-		sudo chmod a+wr /opt/spotify/Apps -R ;;
-esac
 
 if [ ! -d ~/.tmux/plugins/tpm ]; then
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-{{ end }}
+{{- if eq $wm "i3" -}}
+{{- template "i3wm_after" -}}
+{{- end -}}
+
+{{- end -}}

@@ -1,0 +1,5 @@
+case "${aur_packages[@]}" in
+	*"spicetify-cli"*)
+		sudo chmod a+wr /opt/spotify
+		sudo chmod a+wr /opt/spotify/Apps -R ;;
+esac

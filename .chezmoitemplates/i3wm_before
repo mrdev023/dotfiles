@@ -1,0 +1,30 @@
+# All requirements for i3
+# ## i3-gaps => I3 version but with spaces between menu | Equivalent i3
+# ## picom => Compositor to add effects in window | Use with i3
+# ## polybar => Use to create simple bar in bottom | Use with i3
+# ## dunst => Customizable and simple notification manager (to test it, use notify-send) | Use with i3
+# ## dmenu => Basic custom menu like rofi to launch application with Windows + D | Use with i3
+# ## i3lock => Custom lock screen
+# ## gnome-keyring => Use to store sensitive data like password by google chrome and other
+# ## xss-lock => Use to use external locker as X screen saver | Use to use i3lock for i3
+# ## dex => Use to generate or use Desktop file .desktop of type Application | Use with i3
+# ## feh => Use to set wallpaper | Use with i3
+# ## jq => Json parser for command line use by my custom script for relative workspaces because i3-msg return json format
+packages+=(picom i3-gaps polybar dunst dmenu i3lock gnome-keyring xss-lock dex feh jq)
+
+# Utils in complement for i3
+# ## bluez-tools => Used by some polybar scripts
+# ## blueberry => Useful interface to manage bluetooth devices
+# ## pavucontrol => Useful interface to manage audio (<!> Not tried with pipewire)
+# ## network-manager-applet => Useful applet to manage network (Support Wifi and Wired)
+# ## playerctl => Use to manage spotify, browsers playlist and many more from keyboard key (Use dbus to communicate)
+# ## arandr => Basic interface to set current monitor position + resolution
+packages+=(bluez-tools blueberry pavucontrol network-manager-applet playerctl arandr)
+
+# For productivity
+# ## kdeconnect => To sync phone and Desktop | Used by (i3 config)
+packages+=(kdeconnect)
+
+# Spotify to listen music :)
+# ## spicetify-cli => Use to customize spotify (Add vim keyboard style)
+aur_packages+=(spotify spicetify-cli)

@@ -1,4 +1,4 @@
-{{- $wm := (output "bash" "-c" "echo -n $DESKTOP_SESSION") -}}
+{{- $wm := promptString "Choose wm between (gnome/i3wm): " "gnome" -}}
 
 [git]
     autoCommit = true

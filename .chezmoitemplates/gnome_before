@@ -1,2 +1,8 @@
 # All requirements for gnome
-packages+=(gnome gnome-tweaks)
+# gnome => Main package with all requirements for gnome
+# gnome-tweaks => Edit custom settings
+# gnome-shell-extension-material-shell => Tiling window manager for gnome
+packages+=(gnome gnome-tweaks gnome-shell-extension-material-shell)
+
+# gnome-shell-extension-emoji-selector-git => Usabble from tray or with Ctrl+E to select emoji
+aur_packages+=(gnome-shell-extension-emoji-selector-git )

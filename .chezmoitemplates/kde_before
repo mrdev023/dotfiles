@@ -1,0 +1,8 @@
+# All requirements for gnome
+# plasma => Main package with all requirements for gnome
+# kio-extras => 
+# kde-applications => Applications for KDE | kdebase to install just required application
+packages+=(plasma kio-extras kde-applications)
+
+# Manjaro packages
+packages+=(manjaro-kde-settings manjaro-settings-manager-knotifier manjaro-settings-manager-kcm)

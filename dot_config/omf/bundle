@@ -1,5 +1,6 @@
 package android-sdk
 package archlinux
+package await
 package foreign-env
 package fzf
 package nvm

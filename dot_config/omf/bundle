@@ -5,6 +5,7 @@ package foreign-env
 package fzf
 package kill-on-port
 package nvm
+package rvm
 package z
 theme agnoster
 theme default

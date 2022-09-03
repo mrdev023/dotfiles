@@ -27,9 +27,9 @@ DESIRED_WORKSPACE=$(($SCREEN_INDEX * 10 + $1))
 # To run in DRY RUN uncomment line in below
 # MSG_COMMAND=echo
 if [[ "$2" == "move" ]]; then
-	notify-send "move to $DESIRED_WORKSPACE"
+	# notify-send "move to $DESIRED_WORKSPACE"
 	$MSG_COMMAND move container to workspace number $DESIRED_WORKSPACE
 else
-	notify-send "switch to $DESIRED_WORKSPACE"
+	# notify-send "switch to $DESIRED_WORKSPACE"
 	$MSG_COMMAND workspace number $DESIRED_WORKSPACE
 fi

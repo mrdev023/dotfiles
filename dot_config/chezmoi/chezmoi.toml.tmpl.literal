@@ -1,4 +1,4 @@
-{{- $wm := promptString "Choose wm between (gnome/i3wm): " "gnome" -}}
+{{- $wm := promptStringOnce "Choose wm between (gnome/i3wm): " "gnome" -}}
 
 [git]
     autoCommit = true

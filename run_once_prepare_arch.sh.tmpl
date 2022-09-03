@@ -17,7 +17,7 @@ packages+=(kitty viu zsh)
 # For development
 # ## Modern replacement of vim with lua support
 # ## rust-analyzer => Use in replacement of RLS | Used by (emacs-ng + neovim + vscode if installed)
-packages+=(neovim rust-analyzer)
+packages+=(neovim python-neovim rust-analyzer)
 
 {{ if eq .wm "i3wm" }}
 {{- template "i3wm_before" -}}

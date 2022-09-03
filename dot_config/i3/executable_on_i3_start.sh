@@ -15,7 +15,7 @@ function process_workspace () {
 	if [[ "$OUTPUT_NAME" != "$NEW_OUTPUT_NAME" ]]; then
 		echo "WORKSPACE_NUMBER: $WORKSPACE_NUMBER | OUTPUT: $OUTPUT_NAME | NEW_OUTPUT: $NEW_OUTPUT_NAME"
 		echo move workspace number  $WORKSPACE_NUMBER to output $NEW_OUTPUT_NAME
-		$MSG_COMMAND move workspace number \"$WORKSPACE_NUMBER\" to output $NEW_OUTPUT_NAME
+		$MSG_COMMAND move workspace number \"$WORKSPACE_NUMBER\" to output \"$NEW_OUTPUT_NAME\"
 	fi
 }
 
@@ -26,7 +26,7 @@ function reconfigure_workspaces () {
 		INDEX=$(($i - 1))
 		SCREEN=${SCREENS[$INDEX]}
 		echo workspace number $(($INDEX * 10)) to output $SCREEN
-		$MSG_COMMAND workspace number \"$(($INDEX * 10))\" to output $SCREEN
+		$MSG_COMMAND workspace number \"$(($INDEX * 10))\" to output \"$SCREEN\"
 	done
 
 	$MSG_COMMAND -t get_workspaces \
@@ -37,5 +37,5 @@ function reconfigure_workspaces () {
 		done
 }
 
-# reconfigure_workspaces
+reconfigure_workspaces
 

@@ -21,10 +21,10 @@ gaps inner 10
 gaps outer 10
 
 # Keyring daemon
-exec gnome-keyring-daemon --start --components=gpg
-exec gnome-keyring-daemon --start --components=secrets
-exec gnome-keyring-daemon --start --components=ssh
-exec gnome-keyring-daemon --start --components=pkcs11
+exec --no-startup-id gnome-keyring-daemon --start --components=gpg
+exec --no-startup-id gnome-keyring-daemon --start --components=secrets
+exec --no-startup-id gnome-keyring-daemon --start --components=ssh
+exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11
 
 #do not show titlebar on windows: 
 #new_window 1pixel

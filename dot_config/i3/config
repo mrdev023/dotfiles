@@ -252,12 +252,12 @@ bindsym $mod+n mode "$mode_notification"
 # Lock the system
 bindsym $mod+Shift+d exec i3lock -i ~/.config/i3/i3-lock-screen.png -t -f
 
-set_from_resource $bg-color		bg-color		#DC143C
-set_from_resource $inactive-bg-color	inactive-bg-color	#2f343f
-set_from_resource $text-color		text-color		#f3f4f5
-set_from_resource $inactive-text-color	inactive-text-color	#676e7d
-set_from_resource $urgent-bg-color	urgent-bg-color		#e53935
-set_from_resource $indicator-color	indicator-color		#a0a0a0
+set_from_resource $bg-color		bgColor			#DC143C
+set_from_resource $inactive-bg-color	inactiveBgColor		#2f343f
+set_from_resource $text-color		textColor		#f3f4f5
+set_from_resource $inactive-text-color	inactiveTextColor	#676e7d
+set_from_resource $urgent-bg-color	urgentBgColor		#e53935
+set_from_resource $indicator-color	indicatorColor		#a0a0a0
 
 
 # set window colors:

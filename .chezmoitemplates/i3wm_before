@@ -3,14 +3,14 @@
 # ## picom => Compositor to add effects in window | Use with i3
 # ## polybar => Use to create simple bar in bottom | Use with i3
 # ## dunst => Customizable and simple notification manager (to test it, use notify-send) | Use with i3
-# ## dmenu => Basic custom menu like rofi to launch application with Windows + D | Use with i3
+# ## rofi => Basic custom menu like rofi to launch application with Windows + D | Use with i3
 # ## i3lock => Custom lock screen
 # ## gnome-keyring => Use to store sensitive data like password by google chrome and other
 # ## xss-lock => Use to use external locker as X screen saver | Use to use i3lock for i3
 # ## dex => Use to generate or use Desktop file .desktop of type Application | Use with i3
 # ## feh => Use to set wallpaper | Use with i3
 # ## jq => Json parser for command line use by my custom script for relative workspaces because i3-msg return json format
-packages+=(picom i3-gaps polybar dunst dmenu i3lock gnome-keyring xss-lock dex feh jq)
+packages+=(picom i3-gaps polybar dunst i3lock gnome-keyring xss-lock dex feh jq rofi rofi-emoji)
 
 # Utils in complement for i3
 # ## bluez-tools => Used by some polybar scripts

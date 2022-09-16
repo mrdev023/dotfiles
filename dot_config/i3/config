@@ -252,21 +252,46 @@ bindsym $mod+n mode "$mode_notification"
 # Lock the system
 bindsym $mod+Shift+d exec i3lock -i ~/.config/i3/i3-lock-screen.png -t -f
 
-set_from_resource $bg-color		bgColor			#DC143C
-set_from_resource $inactive-bg-color	inactiveBgColor		#2f343f
-set_from_resource $text-color		textColor		#f3f4f5
-set_from_resource $inactive-text-color	inactiveTextColor	#676e7d
-set_from_resource $urgent-bg-color	urgentBgColor		#e53935
-set_from_resource $indicator-color	indicatorColor		#a0a0a0
+set_from_resource $cf01 i3wm.client.focused.border
+set_from_resource $cf02 i3wm.client.focused.background
+set_from_resource $cf03 i3wm.client.focused.text
+set_from_resource $cf04 i3wm.client.focused.indicator
+set_from_resource $cf05 i3wm.client.focused.child_border
 
+set_from_resource $cuf1 i3wm.client.unfocused.border
+set_from_resource $cuf2 i3wm.client.unfocused.background
+set_from_resource $cuf3 i3wm.client.unfocused.text
+set_from_resource $cuf4 i3wm.client.unfocused.indicator
+set_from_resource $cuf5 i3wm.client.unfocused.child_border
+
+set_from_resource $cfi1 i3wm.client.focused_inactive.border
+set_from_resource $cfi2 i3wm.client.focused_inactive.background
+set_from_resource $cfi3 i3wm.client.focused_inactive.text
+set_from_resource $cfi4 i3wm.client.focused_inactive.indicator
+set_from_resource $cfi5 i3wm.client.focused_inactive.child_border
+
+set_from_resource $cu01 i3wm.client.urgent.border
+set_from_resource $cu02 i3wm.client.urgent.background
+set_from_resource $cu03 i3wm.client.urgent.text
+set_from_resource $cu04 i3wm.client.urgent.indicator
+set_from_resource $cu05 i3wm.client.urgent.child_border
+
+set_from_resource $cp01 i3wm.client.placeholder.border
+set_from_resource $cp02 i3wm.client.placeholder.background
+set_from_resource $cp03 i3wm.client.placeholder.text
+set_from_resource $cp04 i3wm.client.placeholder.indicator
+set_from_resource $cp05 i3wm.client.placeholder.child_border
+
+set_from_resource $cb01 i3wm.client.background
 
 # set window colors:
-#                       border             background         text                 indicator
-client.focused          $bg-color          $bg-color          $text-color          $indicator-color
-client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
-client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color $indicator-color
-client.urgent           $urgent-bg-color   $urgent-bg-color   $text-color          $indicator-color
-
+#                       border          background      text            indicator       child_border
+client.focused          $cf01           $cf02           $cf03           $cf04           $cf05
+client.unfocused        $cuf1           $cuf2           $cuf3           $cuf4           $cuf5
+client.focused_inactive $cfi1           $cfi2           $cfi3           $cfi4           $cfi5
+client.urgent           $cu01           $cu02           $cu03           $cu04           $cu05
+client.placeholder      $cp01           $cp02           $cp03           $cp04           $cp05
+client.background       $cb01
 
 # Toggle gap
 set $mode_gaps Toggle gaps: (g) on (f) off

@@ -1,8 +1,41 @@
-bgColor:		#DC143C
-inactiveBgColor:	#2f343f
-textColor:		#f3f4f5
-inactiveTextColor:	#676e7d
-urgentBgColor:		#e53935
-indicatorColor:		#a0a0a0
+! ================== GLOBAL ====================
+#define ACTIVE_BG_COLOR       #DC143C
+#define INACTIVE_BG_COLOR     #2f343f
+#define ACTIVE_TEXT_COLOR     #f3f4f5
+#define INACTIVE_TEXT_COLOR   #676e7d
+#define URGENT_BG_COLOR       #e53935
+#define INDICATOR_COLOR       #a0a0a0
 
 
+! ==================== I3 ======================
+i3wm.client.focused.border:                 ACTIVE_BG_COLOR
+i3wm.client.focused.background:             ACTIVE_BG_COLOR
+i3wm.client.focused.text:                   ACTIVE_TEXT_COLOR
+i3wm.client.focused.indicator:              INDICATOR_COLOR
+i3wm.client.focused.child_border:           ACTIVE_BG_COLOR
+
+i3wm.client.unfocused.border:               INACTIVE_BG_COLOR
+i3wm.client.unfocused.background:           INACTIVE_BG_COLOR
+i3wm.client.unfocused.text:                 INACTIVE_TEXT_COLOR
+i3wm.client.unfocused.indicator:            INDICATOR_COLOR
+i3wm.client.unfocused.child_border:         INACTIVE_BG_COLOR
+
+i3wm.client.focused_inactive.border:        INACTIVE_BG_COLOR
+i3wm.client.focused_inactive.background:    INACTIVE_BG_COLOR
+i3wm.client.focused_inactive.text:          INACTIVE_TEXT_COLOR
+i3wm.client.focused_inactive.indicator:     INDICATOR_COLOR
+i3wm.client.focused_inactive.child_border:  INACTIVE_BG_COLOR
+
+i3wm.client.urgent.border:                  URGENT_BG_COLOR
+i3wm.client.urgent.background:              URGENT_BG_COLOR
+i3wm.client.urgent.text:                    ACTIVE_TEXT_COLOR
+i3wm.client.urgent.indicator:               INDICATOR_COLOR
+i3wm.client.urgent.child_border:            URGENT_BG_COLOR
+
+i3wm.client.placeholder.border:             ACTIVE_BG_COLOR
+i3wm.client.placeholder.background:         ACTIVE_BG_COLOR
+i3wm.client.placeholder.text:               ACTIVE_TEXT_COLOR
+i3wm.client.placeholder.indicator:          INDICATOR_COLOR
+i3wm.client.placeholder.child_border:       ACTIVE_BG_COLOR
+
+i3wm.client.background:                     INACTIVE_BG_COLOR
